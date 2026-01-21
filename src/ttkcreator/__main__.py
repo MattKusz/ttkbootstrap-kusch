@@ -239,7 +239,7 @@ class ColorRow(ttk.Frame):
         self.color_picker = ttk.Button(
             master=self,
             text="...",
-            bootstyle=SECONDARY,
+            bootstyle=PRIMARY,
             command=self.pick_color,
         )
         self.color_picker.pack(side=LEFT, padx=2)
@@ -327,7 +327,7 @@ class DemoWidgets(ttk.Frame):
         mb = ttk.Menubutton(
             master=btn_group,
             text="solid menubutton",
-            bootstyle=SECONDARY,
+            bootstyle=PRIMARY,
             menu=menu,
         )
         mb.pack(fill=X, pady=5)
@@ -335,20 +335,20 @@ class DemoWidgets(ttk.Frame):
         cb = ttk.Checkbutton(
             master=btn_group,
             text="solid toolbutton",
-            bootstyle=(SUCCESS, TOOLBUTTON),
+            bootstyle=TOOLBUTTON,
         )
         cb.invoke()
         cb.pack(fill=X, pady=5)
 
         ob = ttk.Button(
-            master=btn_group, text="outline button", bootstyle=(INFO, OUTLINE)
+            master=btn_group, text="outline button", bootstyle=OUTLINE
         )
         ob.pack(fill=X, pady=5)
 
         mb = ttk.Menubutton(
             master=btn_group,
             text="outline menubutton",
-            bootstyle=(WARNING, OUTLINE),
+            bootstyle=OUTLINE,
             menu=menu,
         )
         mb.pack(fill=X, pady=5)
@@ -356,7 +356,7 @@ class DemoWidgets(ttk.Frame):
         cb = ttk.Checkbutton(
             master=btn_group,
             text="outline toolbutton",
-            bootstyle="success-outline-toolbutton",
+            bootstyle=(OUTLINE, TOOLBUTTON),
         )
         cb.pack(fill=X, pady=5)
 
@@ -366,7 +366,7 @@ class DemoWidgets(ttk.Frame):
         cb1 = ttk.Checkbutton(
             master=btn_group,
             text="rounded toggle",
-            bootstyle=(SUCCESS, ROUND, TOGGLE),
+            bootstyle=(ROUND, TOGGLE),
         )
         cb1.invoke()
         cb1.pack(fill=X, pady=5)
@@ -500,7 +500,7 @@ class DemoWidgets(ttk.Frame):
             master=lframe_inner,
             orient=HORIZONTAL,
             value=75,
-            bootstyle="success-striped",
+            bootstyle=STRIPED,
         ).pack(fill=X, pady=5, expand=YES)
 
         m = ttk.Meter(
@@ -508,7 +508,7 @@ class DemoWidgets(ttk.Frame):
             metersize=150,
             amountused=45,
             subtext="meter widget",
-            bootstyle="info",
+            bootstyle=PRIMARY,
             interactive=True,
         )
         m.pack(pady=10)
@@ -516,12 +516,13 @@ class DemoWidgets(ttk.Frame):
         sb = ttk.Scrollbar(
             master=lframe_inner,
             orient=HORIZONTAL,
+
         )
         sb.set(0.1, 0.9)
         sb.pack(fill=X, pady=5, expand=YES)
 
         sb = ttk.Scrollbar(
-            master=lframe_inner, orient=HORIZONTAL, bootstyle="danger-round"
+            master=lframe_inner, orient=HORIZONTAL, bootstyle=ROUND
         )
         sb.set(0.1, 0.9)
         sb.pack(fill=X, pady=5, expand=YES)

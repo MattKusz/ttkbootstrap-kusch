@@ -119,7 +119,7 @@ class DatePickerDialog:
         self.frm_calendar.pack(fill=BOTH, expand=YES)
         self.frm_title = ttk.Frame(self.frm_calendar, padding=(3, 3))
         self.frm_title.pack(fill=X)
-        self.frm_header = ttk.Frame(self.frm_calendar, bootstyle=SECONDARY)
+        self.frm_header = ttk.Frame(self.frm_calendar, bootstyle=DARK)
         self.frm_header.pack(fill=X)
 
         # setup the toplevel widget
@@ -157,7 +157,7 @@ class DatePickerDialog:
                         text=self.monthdates[row][col].day,
                         anchor=CENTER,
                         padding=5,
-                        bootstyle=SECONDARY,
+                        bootstyle=DARK,
                     ).grid(row=row, column=col, sticky=NSEW)
                 else:
                     if all(
@@ -167,7 +167,7 @@ class DatePickerDialog:
                                 self.date.year == self.date_selected.year,
                             ]
                     ):
-                        day_style = "secondary-toolbutton"
+                        day_style = "dark-toolbutton"
                     else:
                         day_style = f"{self.bootstyle}-calendar"
 
@@ -215,7 +215,7 @@ class DatePickerDialog:
                 text=col,
                 anchor=CENTER,
                 padding=5,
-                bootstyle=(SECONDARY, INVERSE),
+                bootstyle=(DARK, INVERSE),
             ).pack(side=LEFT, fill=X, expand=YES)
 
     def _set_title(self) -> None:

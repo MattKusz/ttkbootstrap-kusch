@@ -1,45 +1,23 @@
-"""User-defined custom theme storage for ttkbootstrap.
-
-This module provides a dictionary for storing user-created custom themes.
-Users can define their own color schemes and save them for use in their
-ttkbootstrap applications.
-
-The USER_THEMES dictionary follows the same format as STANDARD_THEMES,
-with each theme containing type and colors information.
-
-Example:
-    Creating and using a custom theme:
-    ```python
-    from ttkbootstrap.themes.user import USER_THEMES
-
-    # Define custom theme
-    USER_THEMES['mytheme'] = {
-        "type": "light",
+USER_THEMES = {
+    "newtheme": {
+        "type": "dark",
         "colors": {
-            "primary": "#FF6B6B",
-            "secondary": "#4ECDC4",
-            "success": "#95E1D3",
-            "info": "#38A3A5",
-            "warning": "#F9CA24",
-            "danger": "#EE5A6F",
-            "light": "#F7F9FA",
-            "dark": "#2C3E50",
-            "bg": "#FFFFFF",
-            "fg": "#2C3E50",
-            "selectbg": "#4ECDC4",
-            "selectfg": "#FFFFFF",
-            "border": "#DEE2E6",
-            "inputfg": "#2C3E50",
-            "inputbg": "#FFFFFF",
-            "active": "#F0F0F0",
-        },
+            "primary": "#2742fc",
+            "secondary": "#ff008b",
+            "success": "#2742fc",
+            "info": "#2742fc",
+            "warning": "#e74c3c",
+            "danger": "#e74c3c",
+            "light": "#dde1ff",
+            "dark": "#13217e",
+            "bg": "#0f0f26",
+            "fg": "#dde1ff",
+            "selectbg": "#2742fc",
+            "selectfg": "#b9c1ff",
+            "border": "#2d2d73",
+            "inputfg": "#dde1ff",
+            "inputbg": "#151535",
+            "active": "#1F1F1F"
+        }
     }
-
-    # Use in application
-    import ttkbootstrap as ttk
-    root = ttk.Window(themename="mytheme")
-    root.mainloop()
-    ```
-"""
-
-USER_THEMES={}
+}

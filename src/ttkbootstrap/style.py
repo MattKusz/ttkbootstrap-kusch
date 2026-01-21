@@ -322,7 +322,7 @@ class Colors:
             return self.light
 
         if not Style().dynamic_foreground:
-            return self.selectfg
+            return self.fg
 
         # dynamic foreground selection
         contrast_with_fg = self.get_contrast_ration(
@@ -991,7 +991,7 @@ class StyleBuilderTK:
         # if self.is_light_theme:
         #     bordercolor = self.colors.border
         # else:
-        #     bordercolor = self.colors.selectbg
+        #     bordercolor = self.colors.border
 
         widget.configure(
             background=self.colors.bg,
@@ -1083,7 +1083,7 @@ class StyleBuilderTK:
         if self.is_light_theme:
             bordercolor = self.colors.border
         else:
-            bordercolor = self.colors.selectbg
+            bordercolor = self.colors.border
 
         widget.configure(
             relief=tk.FLAT,
@@ -1107,7 +1107,7 @@ class StyleBuilderTK:
         if self.is_light_theme:
             bordercolor = self.colors.border
         else:
-            bordercolor = self.colors.selectbg
+            bordercolor = self.colors.border
 
         activecolor = Colors.update_hsv(self.colors.primary, vd=-0.2)
         widget.configure(
@@ -1133,7 +1133,7 @@ class StyleBuilderTK:
         if self.is_light_theme:
             bordercolor = self.colors.border
         else:
-            bordercolor = self.colors.selectbg
+            bordercolor = self.colors.border
 
         widget.configure(
             relief=tk.FLAT,
@@ -1161,7 +1161,7 @@ class StyleBuilderTK:
         if self.is_light_theme:
             bordercolor = self.colors.border
         else:
-            bordercolor = self.colors.selectbg
+            bordercolor = self.colors.border
 
         widget.configure(
             foreground=self.colors.inputfg,
@@ -1222,7 +1222,7 @@ class StyleBuilderTK:
         if self.is_light_theme:
             bordercolor = self.colors.border
         else:
-            bordercolor = self.colors.selectbg
+            bordercolor = self.colors.border
 
         widget.configure(
             highlightcolor=bordercolor,
@@ -1243,7 +1243,7 @@ class StyleBuilderTK:
         if self.is_light_theme:
             bordercolor = self.colors.border
         else:
-            bordercolor = self.colors.selectbg
+            bordercolor = self.colors.border
 
         focuscolor = widget.cget("highlightbackground")
 
@@ -1408,8 +1408,8 @@ class StyleBuilderTTK:
             bordercolor = self.colors.border
             readonly = self.colors.light
         else:
-            disabled_fg = self.colors.selectbg
-            bordercolor = self.colors.selectbg
+            disabled_fg = self.colors.border
+            bordercolor = self.colors.border
             readonly = bordercolor
 
         if any([colorname == DEFAULT, colorname == ""]):
@@ -1648,7 +1648,7 @@ class StyleBuilderTTK:
                 troughcolor = self.colors.light
                 bordercolor = troughcolor
         else:
-            troughcolor = Colors.update_hsv(self.colors.selectbg, vd=-0.2)
+            troughcolor = Colors.update_hsv(self.colors.dark)
             bordercolor = troughcolor
 
         # ( horizontal, vertical )
@@ -1745,7 +1745,7 @@ class StyleBuilderTTK:
                 troughcolor = self.colors.light
                 bordercolor = troughcolor
         else:
-            troughcolor = Colors.update_hsv(self.colors.selectbg, vd=-0.2)
+            troughcolor = Colors.update_hsv(self.colors.dark)
             bordercolor = troughcolor
 
         if any([colorname == DEFAULT, colorname == ""]):
@@ -1859,7 +1859,7 @@ class StyleBuilderTTK:
                 track_color = self.colors.light
         else:
             disabled_color = self.colors.selectbg
-            track_color = Colors.update_hsv(self.colors.selectbg, vd=-0.2)
+            track_color = Colors.update_hsv(self.colors.dark)
 
         if any([colorname == DEFAULT, colorname == ""]):
             normal_color = self.colors.primary
@@ -2290,7 +2290,7 @@ class StyleBuilderTTK:
             if self.is_light_theme:
                 background = self.colors.border
             else:
-                background = self.colors.selectbg
+                background = self.colors.primary
 
         else:
             h_ttkstyle = f"{colorname}.Round.Horizontal.{STYLE}"
@@ -2303,7 +2303,7 @@ class StyleBuilderTTK:
             else:
                 troughcolor = self.colors.light
         else:
-            troughcolor = Colors.update_hsv(self.colors.selectbg, vd=-0.2)
+            troughcolor = Colors.update_hsv(self.colors.dark)
 
         pressed = Colors.update_hsv(background, vd=-0.05)
         active = Colors.update_hsv(background, vd=0.05)
@@ -2319,7 +2319,7 @@ class StyleBuilderTTK:
             darkcolor=troughcolor,
             bordercolor=troughcolor,
             lightcolor=troughcolor,
-            arrowcolor=background,
+            arrowcolor=self.colors.light,
             arrowsize=self.scale_size(11),
             background=troughcolor,
             relief=tk.FLAT,
@@ -2360,7 +2360,7 @@ class StyleBuilderTTK:
                 )
             ],
         )
-        self.style._build_configure(h_ttkstyle, arrowcolor=background)
+        self.style._build_configure(h_ttkstyle, arrowcolor=self.colors.light)
         self.style.map(
             h_ttkstyle, arrowcolor=[("pressed", pressed), ("active", active)]
         )
@@ -2372,7 +2372,7 @@ class StyleBuilderTTK:
             darkcolor=troughcolor,
             bordercolor=troughcolor,
             lightcolor=troughcolor,
-            arrowcolor=background,
+            arrowcolor=self.colors.light,
             arrowsize=self.scale_size(11),
             background=troughcolor,
             relief=tk.FLAT,
@@ -2412,7 +2412,7 @@ class StyleBuilderTTK:
                 )
             ],
         )
-        self.style._build_configure(v_ttkstyle, arrowcolor=background)
+        self.style._build_configure(v_ttkstyle, arrowcolor=self.colors.light)
         self.style.map(
             v_ttkstyle, arrowcolor=[("pressed", pressed), ("active", active)]
         )
@@ -2484,7 +2484,7 @@ class StyleBuilderTTK:
             if self.is_light_theme:
                 background = self.colors.border
             else:
-                background = self.colors.selectbg
+                background = self.colors.primary
 
         else:
             h_ttkstyle = f"{colorname}.Horizontal.{STYLE}"
@@ -2497,7 +2497,7 @@ class StyleBuilderTTK:
             else:
                 troughcolor = self.colors.light
         else:
-            troughcolor = Colors.update_hsv(self.colors.selectbg, vd=-0.2)
+            troughcolor = Colors.update_hsv(self.colors.dark)
 
         pressed = Colors.update_hsv(background, vd=-0.05)
         active = Colors.update_hsv(background, vd=0.05)
@@ -2513,7 +2513,7 @@ class StyleBuilderTTK:
             darkcolor=troughcolor,
             bordercolor=troughcolor,
             lightcolor=troughcolor,
-            arrowcolor=background,
+            arrowcolor=self.colors.light,
             arrowsize=self.scale_size(11),
             background=troughcolor,
             relief=tk.FLAT,
@@ -2553,7 +2553,7 @@ class StyleBuilderTTK:
                 )
             ],
         )
-        self.style._build_configure(h_ttkstyle, arrowcolor=background)
+        self.style._build_configure(h_ttkstyle, arrowcolor=self.colors.light)
         self.style.map(
             h_ttkstyle, arrowcolor=[("pressed", pressed), ("active", active)]
         )
@@ -2629,8 +2629,8 @@ class StyleBuilderTTK:
             bordercolor = self.colors.border
             readonly = self.colors.light
         else:
-            disabled_fg = self.colors.selectbg
-            bordercolor = self.colors.selectbg
+            disabled_fg = self.colors.border
+            bordercolor = self.colors.border
             readonly = bordercolor
 
         if any([colorname == DEFAULT, colorname == ""]):
@@ -2777,7 +2777,7 @@ class StyleBuilderTTK:
             hover = Colors.update_hsv(self.colors.light, vd=-0.1)
         else:
             disabled_fg = Colors.update_hsv(self.colors.inputbg, vd=-0.3)
-            bordercolor = self.colors.selectbg
+            bordercolor = self.colors.border
             hover = Colors.update_hsv(self.colors.dark, vd=0.1)
 
         if any([colorname == DEFAULT, colorname == ""]):
@@ -2891,7 +2891,7 @@ class StyleBuilderTTK:
             bordercolor = self.colors.border
         else:
             disabled_fg = Colors.update_hsv(self.colors.inputbg, vd=-0.3)
-            bordercolor = self.colors.selectbg
+            bordercolor = self.colors.border
 
         if any([colorname == DEFAULT, colorname == ""]):
             background = self.colors.inputbg
@@ -3601,14 +3601,14 @@ class StyleBuilderTTK:
         if self.is_light_theme:
             toggle_off = self.colors.border
         else:
-            toggle_off = self.colors.selectbg
+            toggle_off = Colors.make_transparent(0.80, self.colors.primary)
 
         disabled_bg = Colors.make_transparent(0.10, self.colors.fg, self.colors.bg)
         disabled_fg = Colors.make_transparent(0.30, self.colors.fg, self.colors.bg)
 
         self.style._build_configure(
             ttkstyle,
-            foreground=self.colors.selectfg,
+            foreground=self.colors.fg,
             background=toggle_off,
             bordercolor=toggle_off,
             darkcolor=toggle_off,
@@ -3752,8 +3752,8 @@ class StyleBuilderTTK:
             bordercolor = self.colors.border
             readonly = self.colors.light
         else:
-            disabled_fg = self.colors.selectbg
-            bordercolor = self.colors.selectbg
+            disabled_fg = self.colors.border
+            bordercolor = self.colors.border
             readonly = bordercolor
 
         if any([colorname == DEFAULT, not colorname]):
@@ -4004,7 +4004,7 @@ class StyleBuilderTTK:
         if self.is_light_theme:
             disabled_fg = self.colors.border
         else:
-            disabled_fg = self.colors.selectbg
+            disabled_fg = self.colors.border
 
         if any([colorname == DEFAULT, colorname == ""]):
             ttkstyle = STYLE
@@ -4226,7 +4226,7 @@ class StyleBuilderTTK:
             else:
                 troughcolor = self.colors.light
         else:
-            troughcolor = Colors.update_hsv(self.colors.selectbg, vd=-0.2)
+            troughcolor = Colors.update_hsv(self.colors.dark)
 
         if any([colorname == DEFAULT, colorname == ""]):
             ttkstyle = STYLE
@@ -4319,7 +4319,7 @@ class StyleBuilderTTK:
             if self.is_light_theme:
                 bordercolor = self.colors.border
             else:
-                bordercolor = self.colors.selectbg
+                bordercolor = self.colors.border
 
         else:
             foreground = self.colors.get(colorname)
@@ -4733,7 +4733,7 @@ class StyleBuilderTTK:
             bordercolor = self.colors.border
             foreground = self.colors.inputfg
         else:
-            bordercolor = self.colors.selectbg
+            bordercolor = self.colors.border
             foreground = self.colors.selectfg
 
         if any([colorname == DEFAULT, colorname == ""]):
@@ -4920,7 +4920,7 @@ class StyleBuilderTTK:
         if self.is_light_theme:
             bordercolor = self.colors.border
         else:
-            bordercolor = self.colors.selectbg
+            bordercolor = self.colors.border
 
         tk_settings = []
         tk_settings.extend(["-borderwidth", 2])
