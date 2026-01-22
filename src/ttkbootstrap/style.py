@@ -322,7 +322,7 @@ class Colors:
             return self.light
 
         if not Style().dynamic_foreground:
-            return self.bg
+            return self.light
 
         # dynamic foreground selection
         contrast_with_fg = self.get_contrast_ration(
