@@ -1406,7 +1406,7 @@ class StyleBuilderTTK:
         if self.is_light_theme:
             disabled_fg = self.colors.border
             bordercolor = self.colors.border
-            readonly = self.colors.light
+            readonly = self.colors.border
         else:
             disabled_fg = self.colors.border
             bordercolor = self.colors.border
@@ -1537,7 +1537,7 @@ class StyleBuilderTTK:
         if self.is_light_theme:
             default_color = self.colors.border
         else:
-            default_color = self.colors.selectbg
+            default_color = self.colors.border
 
         if any([colorname == DEFAULT, colorname == ""]):
             background = default_color
