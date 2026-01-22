@@ -322,7 +322,7 @@ class Colors:
             return self.light
 
         if not Style().dynamic_foreground:
-            return self.fg
+            return self.bg
 
         # dynamic foreground selection
         contrast_with_fg = self.get_contrast_ration(
@@ -2288,7 +2288,7 @@ class StyleBuilderTTK:
             v_ttkstyle = f"Round.Vertical.{STYLE}"
 
             if self.is_light_theme:
-                background = self.colors.border
+                background = self.colors.primary
             else:
                 background = self.colors.primary
 
@@ -2319,7 +2319,7 @@ class StyleBuilderTTK:
             darkcolor=troughcolor,
             bordercolor=troughcolor,
             lightcolor=troughcolor,
-            arrowcolor=self.colors.light,
+            arrowcolor=self.colors.dark,
             arrowsize=self.scale_size(11),
             background=troughcolor,
             relief=tk.FLAT,
@@ -2360,7 +2360,7 @@ class StyleBuilderTTK:
                 )
             ],
         )
-        self.style._build_configure(h_ttkstyle, arrowcolor=self.colors.light)
+        self.style._build_configure(h_ttkstyle, arrowcolor=self.colors.dark)
         self.style.map(
             h_ttkstyle, arrowcolor=[("pressed", pressed), ("active", active)]
         )
@@ -2482,7 +2482,7 @@ class StyleBuilderTTK:
             v_ttkstyle = f"Vertical.{STYLE}"
 
             if self.is_light_theme:
-                background = self.colors.border
+                background = self.colors.primary
             else:
                 background = self.colors.primary
 
@@ -2513,7 +2513,7 @@ class StyleBuilderTTK:
             darkcolor=troughcolor,
             bordercolor=troughcolor,
             lightcolor=troughcolor,
-            arrowcolor=self.colors.light,
+            arrowcolor=self.colors.dark,
             arrowsize=self.scale_size(11),
             background=troughcolor,
             relief=tk.FLAT,
@@ -2553,7 +2553,7 @@ class StyleBuilderTTK:
                 )
             ],
         )
-        self.style._build_configure(h_ttkstyle, arrowcolor=self.colors.light)
+        self.style._build_configure(h_ttkstyle, arrowcolor=self.colors.dark)
         self.style.map(
             h_ttkstyle, arrowcolor=[("pressed", pressed), ("active", active)]
         )
@@ -4188,9 +4188,9 @@ class StyleBuilderTTK:
         if any([colorname == DEFAULT, colorname == ""]):
             ttkstyle = STYLE
             if self.is_light_theme:
-                foreground = self.colors.secondary
+                foreground = self.colors.fg
             else:
-                foreground = self.colors.light
+                foreground = self.colors.fg
         else:
             ttkstyle = f"{colorname}.{STYLE}"
             foreground = self.colors.get(colorname)

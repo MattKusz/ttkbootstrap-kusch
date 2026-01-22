@@ -157,7 +157,7 @@ class DatePickerDialog:
                         text=self.monthdates[row][col].day,
                         anchor=CENTER,
                         padding=5,
-                        bootstyle=DARK,
+                        bootstyle=LIGHT,
                     ).grid(row=row, column=col, sticky=NSEW)
                 else:
                     if all(
