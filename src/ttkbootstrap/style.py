@@ -1406,11 +1406,11 @@ class StyleBuilderTTK:
         if self.is_light_theme:
             disabled_fg = self.colors.border
             bordercolor = self.colors.border
-            readonly = self.colors.border
+            readonly = self.colors.inputbg
         else:
             disabled_fg = self.colors.border
             bordercolor = self.colors.border
-            readonly = bordercolor
+            readonly = self.colors.inputbg
 
         if any([colorname == DEFAULT, colorname == ""]):
             ttkstyle = STYLE
